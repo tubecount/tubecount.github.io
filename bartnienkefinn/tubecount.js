@@ -768,7 +768,7 @@ function setVideo(i,imgname,video, xpos, ypos){
 		else if (video.perc < 0) countClass+= " down";
 
 
-		var op = video.id == "nPZxme7ZZHE" ? 1 : 0.5;
+		var op = video.id == "nPZxme7ZZHE" ? 1 : 0.6;
 
 		el_array[i] = $("<div data-id='"+video.id+"' class='vid vidanimate' style='opacity: "+op+";background : center url("+imgname+");"+setpos(xpos,ypos)+"'> \
 				<div class='new'>"+getNewString(video.newcount)+"</div> \

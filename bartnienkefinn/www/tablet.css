@@ -1,0 +1,87 @@
+
+
+
+#videos{
+/*	width:1024px;
+	height:630px;
+	top:54px;*/
+}
+
+.vid{
+	width: 194px;
+	height: 142px;
+	background-size:134% !important;
+}
+
+
+
+#name{
+	height:50px;
+	line-height: 50px;
+}
+
+
+.names{
+	font: 36px arial;
+}
+
+#imgfavorites{
+	top: 14px;
+	left: 10px;
+}
+
+#imgreload{
+	top: 14px;
+	left: 980px;
+}
+
+#waiting{
+	top: 536px;
+	width: 1024px;
+	height: 152px;
+	line-height: 152px;
+	font-size: 34px;
+}
+
+
+.closebtn {
+	height: 52px;
+	line-height: 52px;
+	width: 140px;
+	font-size: 20px;
+	top: 6px;
+	right: 5px;
+}
+
+#btn_sort{
+	padding: 0px 40px 0px 40px
+}
+
+
+#btnAdd, #btnDel{
+	width: 150px;
+	margin: 8px 20px 20px 0px !important;
+}
+
+
+
+#wrapper{
+	top:48px;
+	bottom:60px;
+}
+
+.deleteChannel{
+	left: 978px;
+	line-height: 22px !important;
+}
+
+#player{
+	width: 1024px;
+	height:768px;
+}
+
+.listmenu{
+	height: 64px;
+	line-height: 64px !important;
+}
+

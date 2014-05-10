@@ -1,0 +1,143 @@
+<html>
+<head>
+	<title>TubeCount</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name = "format-detection" content = "telephone=no" />
+
+	<link rel="stylesheet" type="text/css" href="base.css" />
+	<link rel="stylesheet" type="text/css" href="animate.min.css" />
+	<script type="text/javascript" src="filestorage.js"></script>
+	<script type="text/javascript" src="json2.min.js"></script>
+	<script type="text/javascript" src="MessageBox.js"></script>
+	<script type="text/javascript" src="iscroll.js"></script>
+	<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="tubecount.js"></script>
+
+
+</head>
+
+<body>
+
+	<div id="container">
+
+		<div id="header" class="header selected">
+		<!-- <div id="header_heaven">&#xf0c9;</div>  -->
+				<div id="header_heaven"></div> 
+			<div id="name" class="names">Iedereen dit weekend ons filmpje kijken, en ook liken op Youtube!</div>
+			<div id="reload">&#xf021;</div>
+		</div>
+
+		<div id="offline">offline (no internet connection)</div>
+
+		<div id="videos">
+			 <div id="videoScroller"></div>
+		</div>
+
+		<div id="footer" class="footer">
+	 		<div id="btn_sort">Sorteer</div>
+	 	
+	 		<!-- <div id="imgmore">&#xf0d7;<img  src="arrow-down.png"></div> -->
+		
+			<div>
+					<div id="total"></div>
+					<div id="new"></div>
+				</div>
+			</div>
+
+		<div id="list">
+			<div id="channelsHeader" class="header">
+				<div class="backbtn" ><span>Back</span></div>
+				<div class="names" >Select channel</div>
+				<div></div>
+			</div>
+			
+			<div id="wrapper">
+					<div id="listNames" class="names"></div>
+			</div>
+
+			<div id='listFooter' class="footer">
+			    <div class="big" id="btnAdd">Add</div>
+	 		    <div class="big" id="btnEdit">Edit</div>
+			</div>
+		</div>
+
+		<div id="player" >
+
+			<div id="detailHeader" class="header">
+				<div class="backbtn" ><span>Back</span></div>
+				<div class="names" >Video details</div>
+				<div id="detail_share">&#xf045;</div>
+			</div>
+
+			<div id="vid_detail">
+
+				<div id="vid_detail_scroller">
+
+
+		 			<div id="vid_viewcount"></div>
+					
+					<img id="vid_image">
+					<iframe id="vidframe" frameborder="0"></iframe>
+
+					<div id="vid_info">
+
+						<div id="vid_newcount"></div>
+						<div id="vid_likeinfo">
+							<span id="vid_likes"></span>
+							<span id="vid_dislikes"></span>
+						</div>
+					</div>
+
+					<div id="vid_info_extra">
+						<div id="vid_favorites"></div>
+						<div id="vid_comments"></div>
+					</div>
+
+					<h1 id="vid_title"></h1>
+
+					<div id="vid_description"></div>
+					<div id="vid_published"></div>				
+					<div id="bottomspacer"></div>
+
+				</div>
+				<br>
+			</div>
+		</div>
+
+
+		<div id="video_share">
+
+			<div id="shareHeader" class="header">
+					<div class="backbtn" ><span>Back</span></div>
+					<div class="names" >Share</div>
+					<div id="detail_share"></div>
+			</div>
+
+
+			<canvas id="canvasDetail" width=500 height=500></canvas>
+
+		</div>
+
+
+		<div id="sortblock">
+			<div id="sortnew" class="sortblocktop">Nieuwe</div>
+			<div id="sorttotal">Totaal</div>
+			<div id="sortlikes">Likes</div>
+			<div id="sortlatest" class="currentSort">Datum</div>
+		</div>
+
+		<div id="waiting">
+			<div id="waiting_perc_l" class="waiting_perc"></div>
+			<div id="waiting_perc_r" class="waiting_perc"></div>
+			<div id="waiting_txt"><span>Loading...</span></div>
+		</div>
+
+	</div>
+
+
+
+
+</body>
+</html>

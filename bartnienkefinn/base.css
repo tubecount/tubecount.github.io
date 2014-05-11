@@ -288,7 +288,7 @@ padding-top: 1px;
 	position: absolute;
 	top: 50px;
 	bottom: 60px;
-	overflow: hidden;
+	overflow: scroll;
 }
 
 .vid {
@@ -564,6 +564,7 @@ border: solid #21136a;
 	left:0;
 	right:0;
 	letter-spacing: -1px;
+	overflow: scroll !important;
 }
 
 

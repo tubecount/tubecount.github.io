@@ -42,7 +42,7 @@ var startEvent = "mousedown"; //"touchstart"
 var endEvent = "mouseup"; //"touchend" 
 var v_timer;
 var v_highlightColor = "#324F85";
-var messageBox;
+
 var player_w = 320;
 var player_h = 200;
 var currentSortType = "viewcount";
@@ -84,40 +84,6 @@ function checkOnline(){
 
 
 
-function onDeviceReady(){
-
- 	checkOnline();
-
-
-
-	messageBox  = window.plugins.messageBox;
-
-	document.addEventListener("offline", function(){
-		isOnline = false;
-		showOffline();
-	}, false);
-
-
-	document.addEventListener("online", function(){
-		isOnline = true;
-	}, false);
-
-	document.addEventListener("resume", function(){
-		checkOnline();
-
-		if(isOnline){
-			hideOffline();
-		}
-
-	}, false);
-
-	filer = new FileStorage();
-
-	filer.onready(function(){
-		console.log("ready..");
-		$(init);
-	});
-}
 
 
 function handleOpenURL(url){
@@ -137,7 +103,6 @@ function handleOrientationChange(){
 
 	setColums();
 	updateGridPosition(currentSortArray);
-	updateScroller();
 }
 
 
@@ -170,9 +135,9 @@ function init() {
 	}
 
 
-			setTimeout(function(){
-			scroller = new iScroll("videos",{ hScrollbar: false, vScrollbar: false});
-		},100);
+		// setTimeout(function(){
+		// 	scroller = new iScroll("videos",{ hScrollbar: false, vScrollbar: false});
+		// },100);
 
 		scroller3 = new iScroll("vid_detail");
 
@@ -412,7 +377,8 @@ function setupClickHandlers(){
 	$("#videoScroller").on("click", "div.vid",function(){
 		if(isSorting) return;
 		var id = $(this).attr("data-id");
-		if(id == "nPZxme7ZZHE") showPlayer(id);
+		//if(id == "nPZxme7ZZHE") showPlayer(id);
+		showPlayer(id);
 	});
 }
 
@@ -421,7 +387,6 @@ function showOffline(){
 	$("#videos").addClass("videos_offline");
 	$("#vid_detail,#wrapper").addClass("offline");
 
-	updateScroller();
 	showMore(false);
 	$("#imgreload").hide();
 }
@@ -432,7 +397,6 @@ function hideOffline(){
 
 	$("#vid_detail,#wrapper").removeClass("offline");
 
-	updateScroller();
 	$("#imgreload").show();
 }
 
@@ -813,8 +777,11 @@ function setVideo(i,imgname,video, xpos, ypos){
 	im.src = imgname;
 }
 
+var loadcounter = 0;
 
 function finishLoad(){
+
+	loadcounter++;
 	updateSortArray("newcount", sort_array_newcount, sortByNew);
 	updateSortArray("count", sort_array_count, sortByViewCount);
 	updateSortArray("likes", sort_array_likes, sortByLikes);
@@ -822,7 +789,6 @@ function finishLoad(){
 	$("#waiting").hide();
 	$(".waiting_perc").css("width", "50%");
 	imagesloaded = 0;
-	updateScroller();
 	gettingVids = false;
 	isReloading = false;
 
@@ -835,28 +801,11 @@ function finishLoad(){
 		$("#sorttotal").removeClass("sortblocktop");	
 	}
 	if(isOnline) updateStorage();
+
+	if(loadcounter < 2) more();
 }
 
 
-function updateScroller(){
-
-	if(entries == undefined) return;
-
-	var el = document.getElementById("videoScroller");
-	el.style.height = yy + vid_h + "px";
-			
-	setTimeout(function(){
-		scroller.refresh();
-	},100);
-
-	if(entries.videos.length > maxResults){
-		setTimeout(function(){
-			//scroller.scrollTo(0, scroller.maxScrollY, 1000)	;
-			scroller.scrollTo(0,scroller.maxScrollY,1000)
-
-		},200);	
-	}
-}
 
 function setpos(x,y){
 	return "-webkit-transform: translate3d("+x+"px,"+y+"px,0px);";
@@ -1069,30 +1018,7 @@ function closeChannelList(ev){
 }
 
 
-function add(){
 
-
-	if(!isOnline) return showNoInternet();
-
-	$(".deleteChannel").hide();
-
-	var name;
-
-	if(window.Touch){
-
-	    messageBox.prompt('Enter a Youtube channel', '', function(button, value) {
-	       name = value;
-	       if (button == "cancel" || value == ""){
-	       	return;
-	       }
-		getChannel(name);
-		});
-	}
-	else{
-		name = prompt('Enter a Youtube channel');
-		getChannel(name);
-	}
-}
 
 function getChannel(channel){
 
@@ -1261,7 +1187,7 @@ function showVideoDetails(id){
 	var v = findVideo(id);
 	currentVideo = v;
 
-	if(isOnline){
+	if(id == "nPZxme7ZZHE"){
 		$("#vid_image").hide();
 		$("#vidframe").attr("src", "http://www.youtube.com/embed/" + id + "?showinfo=0" );
 
@@ -1271,7 +1197,7 @@ function showVideoDetails(id){
 	}
 	else{
 		$("#vidframe").hide();	
-		$("#vid_image").attr("src", getRelativeFile(currentChannel,id)).show();	
+		$("#vid_image").attr("src", currentVideo.image2).show();	
 	}
 
 	$("#vid_title").html(v.title);

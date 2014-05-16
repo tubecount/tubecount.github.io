@@ -115,7 +115,7 @@ var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator
 var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
 if (!isChrome && !isSafari){
-	alert("Deze website werkt alleen met Chrome of Safari");
+	$("#browsercheck").show();
 	return;
 }
 

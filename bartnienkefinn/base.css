@@ -1,3 +1,7 @@
+#browsercheck{
+	display: none;
+}
+
 @font-face {
     font-family: 'fontawesome';
     src: url('fontawesome-webfont.ttf');

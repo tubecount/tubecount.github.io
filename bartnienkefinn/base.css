@@ -58,7 +58,7 @@ background: #fff;
 	display: -webkit-box;
 	-webkit-box-pack: justify;
 	-webkit-box-align: center;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#160d44), to(rgb(87, 55, 250))) !important;	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#160d44), to(rgb(87, 55, 250))) !important;
 	color: white;
 	height: 48px;
 }
@@ -526,7 +526,6 @@ background-image: -webkit-linear-gradient(bottom, rgb(0, 0, 255) -30%, rgb(255, 
 background: #21136a;
 border: solid #21136a;
     border-width: 1px 1px 1px 0;
-    -moz-border-radius: 0 5px 5px 0;
     -webkit-border-radius: 0 5px 5px 0;
     border-radius: 0 5px 5px 0;
     display: inline-block;

@@ -111,6 +111,15 @@ var contextDetail;
 
 function init() {
 
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+
+if (!isChrome && !isSafari){
+	alert("Deze website werkt alleen met Chrome of Safari");
+	return;
+}
+
+
 
 
 	//detail canvas
@@ -646,6 +655,7 @@ function updateGridPosition(sortarray){
 		for(var i = 0; i< len; i++){
 			xx = (i*vid_w) % (vid_w * colums);
 			if(i>=colums && xx == 0) yy+=vid_h;
+
 			el_array[ sortarray == undefined ? i : sortarray[i] ].style.webkitTransform = "translate3d("+xx+"px,"+yy+"px,0px)";
 		}
 }
@@ -1118,7 +1128,7 @@ function reload(ev){
 
 	reloadAngle+=360;
 	//$("#imgreload").css("-webkit-transform", "rotate("+reloadAngle+"deg)" );	
-	$("#reload").css("-webkit-transform", "rotate("+reloadAngle+"deg)" );	
+	$("#reload").css("-webkit-transform", "rotate("+reloadAngle+"deg)" );		
 
 	entries.videos.splice(maxResults, entries.videos.length - maxResults);
 

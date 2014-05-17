@@ -812,7 +812,7 @@ function finishLoad(){
 	}
 	if(isOnline) updateStorage();
 
-	if(loadcounter < 2) more();
+	if(loadcounter < 3) more();
 }
 
 

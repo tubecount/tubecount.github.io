@@ -82,10 +82,6 @@ function checkOnline(){
 }
 
 
-
-
-
-
 function handleOpenURL(url){
 	//alert(url);
 	// TODO: do something with the url passed in
@@ -812,7 +808,7 @@ function finishLoad(){
 	}
 	if(isOnline) updateStorage();
 
-	if(loadcounter < 3) more();
+	if(loadcounter < 4) more();
 }
 
 

@@ -107,16 +107,13 @@ var contextDetail;
 
 function init() {
 
-var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+	var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+	var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 
-if (!isChrome && !isSafari){
-	$("#browsercheck").show();
-	return;
-}
-
-
-
+	if (!isChrome && !isSafari){
+		$("#browsercheck").show();
+		return;
+	}
 
 	//detail canvas
 	canvasDetail = document.getElementById("canvasDetail");
@@ -169,7 +166,7 @@ if (!isChrome && !isSafari){
 		if(currentChannel == undefined) currentChannel = channels[0];
 		updateList();
 
-	//	$("#name").html(currentChannel);
+		$("#name").html(currentChannel);
 		
 		if(isOnline){
 			filer.ReadFile(getLastEntriesFilename(currentChannel), function(file){
@@ -360,9 +357,9 @@ function setupClickHandlers(){
 		$("#sortblock").toggle();
 	})
 
-	// $("#footer").bind(startEvent, function(){
-	// 	more();
-	// })
+	$("#footer").bind(startEvent, function(){
+		more();
+	})
 
 	$("#btnAdd").bind(startEvent, function(){
 		add();
@@ -382,7 +379,6 @@ function setupClickHandlers(){
 	$("#videoScroller").on("click", "div.vid",function(){
 		if(isSorting) return;
 		var id = $(this).attr("data-id");
-		//if(id == "nPZxme7ZZHE") showPlayer(id);
 		showPlayer(id);
 	});
 }
@@ -783,11 +779,8 @@ function setVideo(i,imgname,video, xpos, ypos){
 	im.src = imgname;
 }
 
-var loadcounter = 0;
-
 function finishLoad(){
 
-	loadcounter++;
 	updateSortArray("newcount", sort_array_newcount, sortByNew);
 	updateSortArray("count", sort_array_count, sortByViewCount);
 	updateSortArray("likes", sort_array_likes, sortByLikes);
@@ -808,7 +801,6 @@ function finishLoad(){
 	}
 	if(isOnline) updateStorage();
 
-	if(loadcounter < 4) more();
 }
 
 
@@ -1002,7 +994,7 @@ function closeChannelList(ev){
 
 			currentChannel = channels[0];
 
-		//	$("#name").html(currentChannel);
+			$("#name").html(currentChannel);
 			showButtonsAndLabels();	
 			getChannelTotal(currentChannel);
 			getvids(currentChannel);
@@ -1193,13 +1185,10 @@ function showVideoDetails(id){
 	var v = findVideo(id);
 	currentVideo = v;
 
-	if(id == "nPZxme7ZZHE"){
+	if(true){
 		$("#vid_image").hide();
 		$("#vidframe").attr("src", "http://www.youtube.com/embed/" + id + "?showinfo=0" );
-
 		$("#vidframe").show();			
-
-
 	}
 	else{
 		$("#vidframe").hide();	
